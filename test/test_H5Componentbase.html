@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            background-color: #000;
+            font-size:12px;
+        }
+        .iphone{
+            width:340px;
+            height:540px;
+            background-color: #fff;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin:-270px 0 0 -170px;
+        }
+        .H5_component_base{
+            transition:all 1s;
+        }
+        .H5_component_base_load{
+            opacity: 1;
+        }
+        .H5_component_base_leave{
+            opacity: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/H5ComponentBase.css">
+    <script type="text/javascript" src="../js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+</head>
+
+
+<body>
+    <div class="iphone"></div>
+    <script>
+        var cfg={
+            type:'base',
+            text:' ',
+            bg:'../imgs/p1_people.png',
+            width:514,
+            height:306,
+            css:{
+                bottom :0,
+                opacity : 0,
+            },
+            animateIn:{bottom:80,opacity: 1},
+            animateOut:{bottom:0,opacity: 0},
+            center:true
+        }
+       var name = 'myName'
+       var h5 = new H5ComponentBase(name,cfg);
+        $('.iphone').append(h5);
+        var leave = true
+        $('body').click(function(){
+            leave = ! leave
+            $('.h5_component').trigger(leave ? 'onLeave':'onLoad')
+        })
+    </script>
+</body>
+</html>
