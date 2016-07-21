@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>H5</title>
+    <link rel="stylesheet" href="../css/H5.css">
+    <script type="text/javascript" src="../js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery.fullPage.js"></script>
+    <script type="text/javascript" src="../js/H5.js"></script>
+    <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var h5 = new H5();
+            h5.addPage('face','首页')
+                    .addComponent('logo',{
+                        text:'logo',
+                        type:'base',
+                        width:400,
+                        height:100,
+                        css:{
+                            backgroundColor:'red',
+                            top:200,
+                            opacity:0
+                        },
+                        center:true,
+                        animateIn:{
+                            opacity:1
+                        },
+                        animateOut:{
+                            opacity:0
+                        }
+                    })
+                    .addComponent('slogan',{
+                        text:'slogan',
+                        type:'base',
+                        width:400,
+                        height:100,
+                        css:{
+                            backgroundColor:'red',
+                            top:350
+                        },
+                        center:true
+                    })
+              .addPage('desc','核心理念页')
+                      .addComponent('caption',{
+                          text:'核心理念',
+                          type:'base',
+                          width:400,
+                          height:100,
+                          css:{
+                              backgroundColor:'red',
+                              top:200
+                          },
+                          center:true})
+               .addPage('page-3','课程分布方向页')
+                   .addComponent('caption',{
+                       text:'课程方向分布',
+                       type:'base',
+                       width:400,
+                       height:100,
+                       css:{
+                           backgroundColor:'red',
+                           top:200
+                       },
+                       center:true})
+                    .loader();
+/*        var leave=false
+        $('body').click(function(){
+            leave = ! leave
+            $('.h5_component').trigger(leave ? 'onLeave':'onLoad')
+        })*/
+    </script>
+</body>
+</html>
