@@ -84,14 +84,18 @@ var H5ComponentPic = function(name,cfg){
         ctx.clearRect(0,0,w,h)
         ctx.beginPath();
         ctx.moveTo(r,r)
-        if(per<=0){
+        if(per <= 0){
             ctx.arc(r,r,r+1,0,2*Math.PI)
         }
         else{
         ctx.arc(r,r,r+1,sAngel,sAngel+2*Math.PI*per,true)
         }
         ctx.fill();
-        ctx.stroke()
+        ctx.stroke();
+        if( per >= 1){
+            component.find('.text').css('opacity',1);
+            ctx.clearRect(0,0,w,h);
+        }
     }
     drow(0)
     component.on('onLoad',function(){
@@ -100,6 +104,7 @@ var H5ComponentPic = function(name,cfg){
             setTimeout(function(){
                 s+=0.01;
                 drow(s)
+
             },i*10)
         }
     })

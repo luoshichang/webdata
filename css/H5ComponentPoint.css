@@ -1,4 +1,5 @@
-.h5_component_point{}
+.h5_component_point{
+}
 .h5_component_point .point{
     display: block;
     background-color:#ccc;
@@ -18,12 +19,12 @@
   font-size: 0.5em;
 
 }
-.h5_component_point_load .point{
-    -webkit-opacity:1;
+.h5_component_namePoint_load .point{
+    opacity:1;
     -webkit-transform:scale(1);
 }
-.h5_component_point_leave .point{
-    -webkit-opacity:0;
+.h5_component_namePoint_leave .point{
+    opacity:0;
     -webkit-transform:scale(.1)
 }
 
