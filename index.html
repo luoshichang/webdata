@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <title>webdata</title>
+
+    <script type="text/javascript" src="./js/lib/jquery.js"></script>
+    <script type="text/javascript" src="./js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="./js/lib/jquery.fullPage.js"></script>
+
+
+    <!-- 加载H5 相关资源-->
+    <script type="text/javascript">
+        var res =[
+            'Base','Bar','Bar_v','Pic','Point','Polyline','Radar','Ring'
+        ]
+        var html = [];
+        for(s in res){
+            html.push('<script type="text/javascript" src="./js/H5Component'+res[s]+'.js"><\/script>')
+            html.push('<link rel="stylesheet" href="./css/H5Component'+res[s]+'.css">')
+        }
+        document.write(html.join(' '))
+    </script>
+    <!-- 加载H5资源-->
+    <link rel="stylesheet" href="./css/H5.css">
+    <script type="text/javascript" src="./js/H5.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .h5_page{
+            background-image: url(imgs/page_bg.png)
+        }
+        .h5_page_face{
+            background-image: url(imgs/face_bg.png);
+        }
+        .h5_component_nameslogan {
+            -webkit-animation: rock 2s infinite 2s;
+        }
+        @-webkit-keyframes rock {
+            0%{transform: rotate(0deg)}
+            5%{transform: rotate(3deg)}
+            10%{transform: rotate(-4deg)}
+            15%{transform: rotate(3deg)}
+            20%{transform: rotate(-2deg)}
+            25%{transform: rotate(1deg)}
+            30%{transform: rotate(-1deg)}
+            70%{transform: rotate(0deg)}
+            100%{transform: rotate(0deg)}
+        }
+        .h5_component_namecaption{
+            background-image: url(imgs/page_caption_bg.png);
+            width:283px;
+            height:160px;
+            text-align: center;
+            line-height: 140px;
+           font-size: 20px;
+            color:#fff;
+        }
+        .h5_component_nameback {
+            top:30px;
+            -webkit-animation: back 2s infinite 2s;
+        }
+        @-webkit-keyframes back{
+            50%{top:20px}
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    $(function(){
+    var h5 = new H5();
+        h5.whenAddPage = function(){
+            this.addComponent('slide_up',{
+                bg:'imgs/footer.png',
+                css:{
+                    opacity:0,
+                    left:0,bottom:-20,
+                    width:'100%',height:'20px',zIndex:999
+                },
+                animateIn:{
+                    opacity:1,bottom:'-1px'
+                },
+                animateOut:{
+                    opacity:0,bottom:'-20px'
+                },
+                delay:1000
+            })
+        }
+        h5.addPage('face')
+                .addComponent('logo',{
+                    type:'base',
+                    width:395,
+                    height:130,
+                    bg:'imgs/face_logo.png',
+                    center:true,
+                    css:{opacity:0},
+                    animateIn:{
+                        opacity:1,
+                        top:100
+                    },
+                    animateOut:{
+                        opacity:0,
+                        top:0
+                    }
+                })
+                .addComponent('slogan',{
+                    bg:'imgs/face_slogan.png',
+                    type:'base',
+                    width:365,
+                    height:99,
+                    css:{
+                        opacity:0,
+                        top:180
+                    },
+                    center:true,
+                    animateIn:{
+                        opacity:1,
+                        left:'50%'
+                    },
+                    animateOut:{
+                        opacity:0,
+                        left:'0%'
+                    },
+                    delay:500
+                })
+                .addComponent('face_img_left',{
+                    width:370,
+                    height:493,
+                    bg:'imgs/face_img_left.png',
+                    css:{
+                        opacity:0, left:-50, bottom:-50
+                    },
+                    animateIn:{
+                        opacity:1,  left:0, bottom:0
+                    },
+                    animateOut:{
+                        opacity:0, left:-50, bottom:-50
+                    },
+                    delay:1000
+                })
+                .addComponent('face_img_right',{
+                    width:270,
+                    height:449,
+                    bg:'imgs/face_img_right.png',
+                    css:{
+                        opacity:0, right:-50, bottom:-50
+                    },
+                    animateIn:{
+                        opacity:1,  right:0, bottom:0
+                    },
+                    animateOut:{
+                        opacity:0, right:-50, bottom:-50
+                    },
+                    delay:1500
+                })
+            .addPage()
+                .addComponent('caption',{
+                    text:'核心理念',
+                    type:'base',
+                    })
+                .addComponent('text',{
+                    text:'IT教育网=只学有用的',
+                    type:'base',
+                    center:true,
+                    width:500,
+                    height:30,
+                    css:{
+                        opacity:0,textAlign:'center',color:'red',fontSize:'26px',top:160
+                    },
+                    animateIn:{
+                        opacity:1,  top:140
+                    },
+                    animateOut:{
+                        opacity:0, top:160
+                    }
+                })
+                .addComponent('description',{
+                    text:'2013年,IT教育网的诞生引领中国IT职业从教育进入新时代；高质量实战课程、全新教学模式、实时互动学习，以领先优势打造行业品牌；迄今为止，IT教育网已成为中国规模最大、互动性最高的IT技能学习平台。',
+                    center:true,
+                    width:481,
+                    height:295,
+                    bg:'imgs/description_bg.gif',
+                    css:{
+                        opacity:0,
+                        padding:'15px 10px 10px 10px',
+                        color:'#fff',
+                        fontSize:'15px',
+                        lineHeight:'18px',
+                        textAlign:'justify',
+                        top:180
+                    },
+                    animateIn:{opacity:1,top:240},
+                    animateOut:{opacity:0,top:180},
+                    delay:500
+                })
+                .addComponent('people',{
+                    center:true,
+                    width:515,
+                    height:305,
+                    bg:'imgs/p1_people.png',
+                    css:{
+                        opacity:0,
+                        bottom:0
+                    },
+                    animateIn:{opacity:1,bottom:40},
+                    animateOut:{opacity:0,bottom:0},
+                    delay:1000
+                })
+            .addPage('tail')
+                .addComponent('logo',{
+                    type:'base',
+                    width:359,
+                    height:129,
+                    bg:'imgs/tail_logo.png',
+                    css:{
+                        top:240,opacity:0
+                    },
+                    center:true,
+                    animateIn:{opacity:1,top:210},
+                    animateOut:{opacity:0,top:240},
+                })
+                .addComponent('slogan',{
+                    center:true,
+                    type:'base',
+                    width:314,
+                    height:46,
+                    bg:'imgs/tail_slogan.png',
+                    css:{
+                        top:280,opacity:0,left:0
+                    },
+                    animateIn:{opacity:1,left:'50%'},
+                    animateOut:{opacity:0,left:'0%'},
+                    delay:500
+                })
+                .addComponent('share',{
+                    type:'base',
+                    width:128,
+                    height:120,
+                    bg:'imgs/tail_share.png',
+                    css:{
+                        top:110,opacity:0
+                    },
+
+                    animateIn:{opacity:1,top:10,right:10},
+                    animateOut:{opacity:0,top:110,right:110},
+                    delay:1500
+                })
+                .addComponent('back',{
+                    type:'base',
+                    width:52,
+                    height:50,
+                    bg:'imgs/tail_back.png',
+                    css:{
+                        cursor:'pointer'
+                    },
+                    center:true,
+                    onclick:function(){
+                        $.fn.fullpage.moveTo(1)
+                    },
+                })
+                .loader(3);
+    })
+</script>
+</body>
+</html>

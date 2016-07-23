@@ -6,7 +6,6 @@ var H5 = function(){
     this.el = $('<div class="h5" id="'+id+'">').hide()
     this.page = [];
     $('body').append(this.el)
-
     this.addPage = function(name,text){
         var page = $('<div class="h5_page section">')
         if( name != undefined){
@@ -17,6 +16,9 @@ var H5 = function(){
         }
         this.el.append(page)
         this.page.push(page)
+        if( typeof  this.whenAddPage === 'function'){
+            this.whenAddPage();
+        }
         return this;
     }
     this.addComponent = function(name,cfg){
@@ -36,7 +38,7 @@ var H5 = function(){
         page.append(component);
         return this;
     }
-    this.loader = function(){
+    this.loader = function(firstPage){
         this.el.fullpage(
             {
                 onLeave:function(index,nextIndex,direction){
@@ -49,5 +51,11 @@ var H5 = function(){
         )
         this.page[0].find('.h5_component').trigger('onLoad')
         this.el.show()
+        if(firstPage){
+            $.fn.fullpage.moveTo(
+                firstPage
+            )
+        }
+
     }
 }
