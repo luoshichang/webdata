@@ -1,0 +1,25 @@
+.h5_Component_Pic{}
+.h5_component_Pic canvas{
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height: 100%;
+}
+.h5_component_Pic .text{
+    position: absolute;
+    text-align: center;
+    font-size: 12px;
+    height: 24px;
+    z-index: 10;
+    transform: scale(.8);
+    -webkit-opacity:0;
+}
+.h5_component_namePic_load .text{
+
+    -webkit-opacity:1;
+    -webkit-transition: all 1s 1s;
+}
+.h5_component_namePic_leave .text{
+    -webkit-opacity:0;
+}

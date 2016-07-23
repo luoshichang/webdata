@@ -18,9 +18,32 @@ var H5ComponentPoint = function(name,cfg){
         }
         if(item[3] !=='undefined' && item[4] !=='undefined'){
             point.css('left',item[3]).css('top',item[4])
+            point.data('left',item[3]).data('top',item[4]);
         }
+        point.css('zIndex',100-id);
+        point.css('left',0).css('top',0);
         component.append( point);
     })
 
+    //  onLoad之后取出暂存的left、top 并且附加到 CSS 中
+    component.on('onLoad',function(){
+        component.find('.point').each(function(idx,item){
+            $(item).css('left',$(item).data('left')).css('top',$(item).data('top'));
+        })
+    });
+    // ：onLeave之后，还原初始的位置
+    component.on('onLeave',function(){
+        component.find('.point').each(function(idx,item){
+            $(item).css('left',0).css('top',0);
+        })
+    })
+
+    component.find('.point').on('click',function(){
+
+        component.find('.point').removeClass('point_focus');
+        $(this).addClass('point_focus');
+
+        return false;
+    }).eq(0).addClass('point_focus')
     return component
 }

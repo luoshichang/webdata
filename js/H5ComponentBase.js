@@ -19,6 +19,17 @@ var H5ComponentBase = function(name,cfg){
             position : 'absolute'
         })
     }
+    if(cfg.relativeTo){
+        var parent = $('body').find('.h5_component_name_'+cfg.relativeTo);
+        var position = {
+            left:$(parent)[0].offsetLeft,
+            top:$(parent)[0].offsetTop,
+        };
+        if(cfg.center === true){
+            position.left=0;
+        }
+        component.css('transform','translate('+position.left+'px,'+position.top+'px)');
+    }
     component.on('onLoad',function(){
        component.addClass(cls+'_load').removeClass(cls+'_leave')
         cfg.animateIn && component.animate(cfg.animateIn)

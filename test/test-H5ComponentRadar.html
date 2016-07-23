@@ -30,10 +30,10 @@
         }
     </style>
     <link rel="stylesheet" href="../css/H5ComponentBase.css">
-    <link rel="stylesheet" href="../css/H5ComponentPoint.css">
+    <link rel="stylesheet" href="../css/H5ComponentRadar.css">
     <script type="text/javascript" src="../js/lib/jquery.js"></script>
     <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
-    <script type="text/javascript" src="../js/H5ComponentPoint.js"></script>
+    <script type="text/javascript" src="../js/H5ComponentRadar.js"></script>
 </head>
 
 
@@ -41,34 +41,33 @@
 <div class="iphone"></div>
 <script>
     var cfg={
-        type:'point',
-        text:' ',
+        type:'Radar',
+        text:'',
         data:[
                 ['A项',.4,'green'],
-                ['b项',.2,'yellow',0,'-60%'],
-                ['c项',.2,'red',0,'120%']
+                ['b项',.3,'yellow',0,'-60%'],
+                ['c项',.5,'red',0,'120%'],
+                ['D项',.6,'red',0,'120%'],
+                 ['E项',.8,'red',0,'120%']
         ],
-        width:300,
-        height:300,
+        width:400,
+        height:400,
         css:{
-            top:200,
+            bottom :150,
             opacity : 1,
         },
 /*        animateIn:{bottom:'40%',opacity: 1},
         animateOut:{bottom:0,opacity: 0},*/
         center:true
     }
-    var name = 'Point'
-    var h5 = new H5ComponentPoint(name,cfg);
+    var name = 'Radar'
+    var h5 = new H5ComponentRadar(name,cfg);
     $('.iphone').append(h5);
     var leave = true
     $('body').click(function(){
         leave = ! leave
         $('.h5_component').trigger(leave ? 'onLeave':'onLoad')
     })
-    setTimeout(function(){
-        $('body').click()
-    },1000)
 </script>
 </body>
 </html>

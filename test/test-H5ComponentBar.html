@@ -30,10 +30,10 @@
         }
     </style>
     <link rel="stylesheet" href="../css/H5ComponentBase.css">
-    <link rel="stylesheet" href="../css/H5ComponentPoint.css">
+    <link rel="stylesheet" href="../css/H5ComponentBar.css">
     <script type="text/javascript" src="../js/lib/jquery.js"></script>
     <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
-    <script type="text/javascript" src="../js/H5ComponentPoint.js"></script>
+    <script type="text/javascript" src="../js/H5ComponentBar.js"></script>
 </head>
 
 
@@ -41,34 +41,37 @@
 <div class="iphone"></div>
 <script>
     var cfg={
-        type:'point',
+        type:'bar',
         text:' ',
         data:[
-                ['A项',.4,'green'],
-                ['b项',.2,'yellow',0,'-60%'],
-                ['c项',.2,'red',0,'120%']
+                ['javascript',.44,'#ff7676'],
+                ['html/css',.2,'yellow',0,'-60%'],
+                ['css3',.33,'red',0,'120%'],
+                ['html5',.5,'red',0,'120%'],
+                ['jQuery',.1,'red',0,'120%'],
+                ['Bootstrap',.4,'red',0,'120%'],
+                ['AngularJs',.1,'red',0,'120%']
         ],
-        width:300,
-        height:300,
+        width:530,
+        height:600,
         css:{
-            top:200,
-            opacity : 1,
+            top:100,
+            opacity:0
         },
-/*        animateIn:{bottom:'40%',opacity: 1},
-        animateOut:{bottom:0,opacity: 0},*/
+        animateIn:{opacity: 1,
+                    top:200},
+        animateOut:{opacity: 0,
+                      top:100},
         center:true
     }
-    var name = 'Point'
-    var h5 = new H5ComponentPoint(name,cfg);
+    var name = 'bar'
+    var h5 = new H5ComponentBar(name,cfg);
     $('.iphone').append(h5);
     var leave = true
     $('body').click(function(){
         leave = ! leave
         $('.h5_component').trigger(leave ? 'onLeave':'onLoad')
     })
-    setTimeout(function(){
-        $('body').click()
-    },1000)
 </script>
 </body>
 </html>
