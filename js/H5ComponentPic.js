@@ -29,13 +29,13 @@ var H5ComponentPic = function(name,cfg){
     cns.height = ctx.height = h
     $(cns).css('zIndex',2)
     component.append(cns)
-    var color =['red','green','blue','orange','gray']//备用颜色
+    var pop =['red','green','blue','orange','gray']//备用颜色
     var sAngel = 1.5 * Math.PI;
     var eAngel = 0;
     var aAngel = Math.PI*2;
     for(var i=0;i<step;i++){
         var item = cfg.data[i];
-        var color = item[2] || (item[2] = color.pop())
+        var color = item[2] || (item[2] = pop[i])
         ctx.beginPath();
         ctx.fillStyle = color;
         ctx.strokeStyle =color;
@@ -93,7 +93,8 @@ var H5ComponentPic = function(name,cfg){
         ctx.fill();
         ctx.stroke();
         if( per >= 1){
-            component.find('.text').css('opacity',1);
+            if(component.find('.text').length <=1){
+            component.find('.text').css('opacity',1);}
             ctx.clearRect(0,0,w,h);
         }
     }

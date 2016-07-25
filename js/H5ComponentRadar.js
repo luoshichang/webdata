@@ -19,6 +19,7 @@ var H5ComponentRadar = function(name,cfg){
     ctx.stroke()
 
     ctx.beginPath();
+    ctx.strokeStyle = 'rgba(255,255,255,0)'
     ctx.arc(r,r,r-2,0,2*Math.PI)
     ctx.stroke()
     var isBlue = false

@@ -19,20 +19,20 @@
   font-size: 0.5em;
 
 }
-.h5_component_namePoint_load .point{
+.h5_component_namepoint_load .point{
     opacity:1;
     -webkit-transform:scale(1);
 }
-.h5_component_namePoint_leave .point{
+.h5_component_namepoint_leave .point{
     opacity:0;
     -webkit-transform:scale(.1)
 }
 
 
-.h5_component_namePoint_load .point_focus{
+.h5_component_namepoint_load .point_focus{
     box-shadow: 0 0 10px rgba(0,0,0,.5);
 }
-.h5_component_namePoint_load .point_focus:after{
+.h5_component_namepoint_load .point_focus:after{
     content: ' ';
     text-indent: -999px;
     position: absolute;

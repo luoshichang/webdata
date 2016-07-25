@@ -51,22 +51,22 @@
     -webkit-opacity:0;
 }
 
-.h5_component_nameBar_v_load .rate .bg{
+.h5_component_namebar_v_load .rate .bg{
     -webkit-transition:all 1s .5s;
     height: 100%;
 }
 
 
-.h5_component_nameBar_v_leave .rate .bg{
+.h5_component_namebar_v_leave .rate .bg{
     height: 0%;
 }
 
 
-.h5_component_nameBar_v_load .per{
+.h5_component_namebar_v_load .per{
     -webkit-transition:all 1s 1.5s;
     -webkit-opacity:1;
 }
-.h5_component_nameBar_v_leave .per{
+.h5_component_namebar_v_leave .per{
     -webkit-opacity:0;
 }
 
